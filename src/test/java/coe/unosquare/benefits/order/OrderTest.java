@@ -14,29 +14,12 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 import static coe.unosquare.benefits.util.PayOrderSimulator.payOrder;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class OrderTest {
     @Test
-    void orderWithVisaMoreThan10ProductsDiscountTest() {
-        Map<Product, Integer> products = ProductGenerator.generateProducts(15);
-        assertEquals(0.15, payOrder(products, "Visa"));
-    }
-
-    @Test
-    void orderWithVisa10ProductsDiscountTest() {
-        Map<Product, Integer> products = ProductGenerator.generateProducts(10);
-        assertEquals(0.15, payOrder(products, "Visa"));
-    }
-
-    @Test
-    void orderWithVisa7ProductsDiscountTest() {
-        Map<Product, Integer> products = ProductGenerator.generateProducts(7);
-        assertEquals(0.10, payOrder(products, "Visa"));
-    }
-
-    @Test
-    void orderWithVisaLessThan7ProductsDiscountTest() {
-        Map<Product, Integer> products = ProductGenerator.generateProducts(5);
-        assertEquals(0.05, payOrder(products, "Visa"));
+    void calculateTotalTest() {
+        Map<Product, Integer> products = ProductGenerator.generateProducts(30.00);
+        assertTrue(OrderCreator.constructOrder("Amex", products).calculateTotal(0.0) > 30.00);
     }
 }

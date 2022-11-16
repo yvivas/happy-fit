@@ -40,7 +40,7 @@ public abstract class Order {
      */
     public abstract Double pay(final String paymentType);
 
-    public double calculateSubtotal(double discount) {
+    public double calculateTotal(double discount) {
         double subtotal = getProducts().entrySet()
                 .stream()
                 .mapToDouble(product -> product.getKey().getPrice() * product.getValue())

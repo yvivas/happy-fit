@@ -25,6 +25,6 @@ public class VisaOrder extends Order {
                 discount = 0.05;
             }
         }
-        return calculateSubtotal(discount);
+        return calculateTotal(discount);
     }
 }
