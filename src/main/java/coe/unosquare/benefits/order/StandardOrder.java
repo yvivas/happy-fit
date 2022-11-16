@@ -12,6 +12,6 @@ public class StandardOrder extends Order {
 
     @Override
     public Double pay(String paymentType) {
-        return calculateSubtotal(0.0);
+        return calculateTotal(0.0);
     }
 }

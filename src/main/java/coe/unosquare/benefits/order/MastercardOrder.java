@@ -27,7 +27,7 @@ public class MastercardOrder extends Order {
                 discount = 0.08;
             }
         }
-        return calculateSubtotal(discount);
+        return calculateTotal(discount);
     }
 
 }
