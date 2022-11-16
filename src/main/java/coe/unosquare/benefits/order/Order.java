@@ -39,4 +39,12 @@ public abstract class Order {
      * @return the double
      */
     public abstract Double pay(final String paymentType);
+
+    public double calculateSubtotal(double discount) {
+        double subtotal = getProducts().entrySet()
+                .stream()
+                .mapToDouble(product -> product.getKey().getPrice() * product.getValue())
+                .sum();
+        return subtotal - subtotal * discount;
+    }
 }
